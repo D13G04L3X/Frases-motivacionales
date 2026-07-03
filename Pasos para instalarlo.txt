@@ -1,0 +1,21 @@
+Paso 6 — Probarlo a mano antes de programarlo
+Antes de automatizar, comprueba que funciona. Abre cmd, y pega esto (con las comillas, porque la ruta tiene espacios): python "D:\Vida de adulto\Chambas\A&CM\Automatizaciones\Creación de mensajes\notificador.py"
+
+Paso 7 — Programar las horas (Programador de tareas)
+Aquí defines a qué horas del día sale. Voy con la interfaz gráfica:
+
+Abre el menú Inicio, escribe Programador de tareas y ábrelo.
+Panel derecho → Crear tarea… (no uses "tarea básica", esta permite varias horas).
+Pestaña General: ponle nombre, por ejemplo Mensajes motivacionales A&CM. Marca Ejecutar tanto si el usuario inició sesión como si no solo si quieres que salga sin sesión; para toasts es mejor dejar Ejecutar solo cuando el usuario haya iniciado sesión (las notificaciones necesitan una sesión activa para verse).
+Pestaña Desencadenadores → Nuevo…. Elige Según una programación → Diariamente, pon la hora (ej. 09:00) y Aceptar. Repite Nuevo… por cada hora que quieras: 12:00, 15:30, etc. Puedes poner tantos como quieras.
+Pestaña Acciones → Nueva…:
+
+- Acción: Iniciar un programa.
+- Programa o script: la ruta de pythonw.exe (la versión sin ventana negra). Para encontrarla, corre en cmd: python -c "import sys; print(sys.executable)" y en el resultado cambia python.exe por pythonw.exe. Suele ser algo como C:\Users\TuUsuario\AppData\Local\Programs\Python\Python312\pythonw.exe.
+- Agregar argumentos: "D:\Vida de adulto\Chambas\A&CM\Automatizaciones\Creación de mensajes\notificador.py" (con comillas).
+
+
+Pestaña Condiciones: desmarca Iniciar la tarea solo si el equipo está conectado a corriente si son portátiles, para que también salga con batería.
+Aceptar. Puedes seleccionar la tarea y darle Ejecutar para probar de una.
+
+Usé pythonw.exe en vez de python.exe a propósito: así no aparece una ventana negra parpadeando cada vez.
